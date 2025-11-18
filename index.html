@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MIRAZ – Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #f5f5f5;
+            --text-gray: #444;
+            --primary: #1a73e8;
+            --card-bg: #fff;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-gray);
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            margin-top: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            margin: 8px 0;
+            padding-left: 10px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .social {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 12px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .fade {
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container fade">
+
+        <!-- Header -->
+        <div class="header">
+            <h1>MIRAZ</h1>
+            <p>Web Developer • Frontend Engineer • JavaScript Specialist</p>
+        </div>
+
+        <!-- About -->
+        <div class="card">
+            <h2 class="section-title">About Me</h2>
+            <p>
+                I'm a professional web developer who builds clean, modern, fast and 
+                fully responsive websites.  
+                I specialize in HTML, CSS, and JavaScript and create minimal 
+                user-focused UI with smooth experience.
+            </p>
+        </div>
+
+        <!-- Skills -->
+        <div class="card">
+            <h2 class="section-title">Skills</h2>
+            <ul>
+                <li>HTML5 / CSS3 / JavaScript</li>
+                <li>Responsive Web Design</li>
+                <li>Material UI Inspired Layouts</li>
+                <li>Clean & Maintainable Code</li>
+                <li>Frontend Performance Optimization</li>
+            </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="card">
+            <h2 class="section-title">Contact</h2>
+
+            <div class="social">
+                <a class="btn" href="https://wa.me/8801939925491" target="_blank">WhatsApp</a>
+                <a class="btn" href="https://t.me/whoperson" target="_blank">Telegram</a>
+            </div>
+        </div>
+
+        <footer>
+            © 2025 MIRAZ — All Rights Reserved
+        </footer>
+
+    </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+</script>
+
+</body>
+</html>
