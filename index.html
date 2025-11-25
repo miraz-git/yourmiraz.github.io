@@ -1,171 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MIRAZ – Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIRAZ Portfolio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    /* ================== General Styles ================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
 
-    <style>
-        :root {
-            --bg: #f5f5f5;
-            --text-gray: #444;
-            --primary: #1a73e8;
-            --card-bg: #fff;
-            --shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
+    body {
+      background: #f5f5f5;
+      color: #202124;
+      line-height: 1.6;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        body {
-            background: var(--bg);
-            color: var(--text-gray);
-        }
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-        .container {
-            max-width: 850px;
-            margin: auto;
-            padding: 20px;
-        }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #1a73e8;
+    }
 
-        .header {
-            text-align: center;
-            padding: 60px 0;
-        }
+    /* ================== Header ================== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-        .header h1 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1a73e8;
+    }
 
-        .header p {
-            font-size: 18px;
-            opacity: 0.8;
-        }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
 
-        .card {
-            background: var(--card-bg);
-            padding: 30px;
-            margin-top: 30px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-        }
+    nav ul li a {
+      font-weight: 500;
+      transition: color 0.3s;
+    }
 
-        .section-title {
-            font-size: 22px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
+    nav ul li a:hover {
+      color: #0b59d3;
+    }
 
-        ul {
-            list-style: none;
-        }
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
 
-        ul li {
-            margin: 8px 0;
-            padding-left: 10px;
-            border-left: 3px solid var(--primary);
-        }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: #1a73e8;
+    }
 
-        .social {
-            margin-top: 25px;
-            display: flex;
-            gap: 15px;
-        }
+    @media(max-width: 768px){
+      nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        background: #ffffff;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      }
 
-        .btn {
-            background: var(--primary);
-            color: white;
-            padding: 12px 22px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.3s;
-        }
+      nav ul.active {
+        display: flex;
+      }
 
-        .btn:hover {
-            opacity: 0.85;
-        }
+      .hamburger {
+        display: flex;
+      }
+    }
 
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            font-size: 14px;
-            opacity: 0.7;
-        }
+    /* ================== Profile Section ================== */
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+    }
 
-        .fade {
-            animation: fadeIn 1.2s ease-in-out;
-        }
+    .profile img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #1a73e8;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    .profile h1 {
+      font-size: 2rem;
+      color: #1a73e8;
+    }
+
+    .profile h3 {
+      font-size: 1.2rem;
+      color: #5f6368;
+    }
+
+    .profile .buttons a {
+      padding: 10px 20px;
+      margin: 5px;
+      background: #1a73e8;
+      color: #fff;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .profile .buttons a:hover {
+      background: #0b59d3;
+    }
+
+    .socials a {
+      margin: 0 10px;
+      color: #1a73e8;
+      font-size: 1.5rem;
+    }
+
+    /* ================== About Section ================== */
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      font-size: 1rem;
+      color: #3c4043;
+    }
+
+    /* ================== Experience Section ================== */
+    .experience .item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .experience .item .material-icons {
+      font-size: 2rem;
+      color: #1a73e8;
+    }
+
+    /* ================== Projects & Blogs ================== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      color: #1a73e8;
+      margin-bottom: 10px;
+    }
+
+    .card .btn {
+      padding: 8px 16px;
+      background: #1a73e8;
+      color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-right: 5px;
+      font-size: 0.9rem;
+    }
+
+    /* ================== Contact Section ================== */
+    .contact a {
+      color: #1a73e8;
+      display: inline-block;
+      margin: 5px 0;
+    }
+
+    /* ================== Footer ================== */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #e8f0fe;
+      color: #1a73e8;
+    }
+  </style>
 </head>
-
 <body>
 
-    <div class="container fade">
+  <!-- Header -->
+  <header>
+    <div class="logo">MIRAZ</div>
+    <nav>
+      <ul>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+  </header>
 
-        <!-- Header -->
-        <div class="header">
-            <h1>MIRAZ</h1>
-            <p>Web Developer • Frontend Engineer • JavaScript Specialist</p>
-        </div>
-
-        <!-- About -->
-        <div class="card">
-            <h2 class="section-title">About Me</h2>
-            <p>
-                I'm a professional web developer who builds clean, modern, fast and 
-                fully responsive websites.  
-                I specialize in HTML, CSS, and JavaScript and create minimal 
-                user-focused UI with smooth experience.
-            </p>
-        </div>
-
-        <!-- Skills -->
-        <div class="card">
-            <h2 class="section-title">Skills</h2>
-            <ul>
-                <li>HTML5 / CSS3 / JavaScript</li>
-                <li>Responsive Web Design</li>
-                <li>Material UI Inspired Layouts</li>
-                <li>Clean & Maintainable Code</li>
-                <li>Frontend Performance Optimization</li>
-            </ul>
-        </div>
-
-        <!-- Contact -->
-        <div class="card">
-            <h2 class="section-title">Contact</h2>
-
-            <div class="social">
-                <a class="btn" href="https://wa.me/8801939925491" target="_blank">WhatsApp</a>
-                <a class="btn" href="https://t.me/whoperson" target="_blank">Telegram</a>
-            </div>
-        </div>
-
-        <footer>
-            © 2025 MIRAZ — All Rights Reserved
-        </footer>
-
+  <!-- Profile Section -->
+  <section id="profile" class="profile">
+    <img src="profile.jpg" alt="MIRAZ Profile Picture">
+    <h1>MIRAZ</h1>
+    <h3>Web Developer & Designer</h3>
+    <div class="buttons">
+      <a href="#">Resume</a>
+      <a href="#contact">Contact</a>
     </div>
+    <div class="socials">
+      <a href="#" target="_blank"><span class="material-icons">linkedin</span></a>
+      <a href="#" target="_blank"><span class="material-icons">code</span></a>
+    </div>
+  </section>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-</script>
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+      আমি একজন passionate Web Developer এবং Designer। আমি HTML, CSS, JavaScript, এবং Modern Frameworks এ দক্ষ। আমি clean এবং responsive web design করি Material Design standards অনুযায়ী।
+    </p>
+  </section>
 
+  <!-- Experience Section -->
+  <section id="experience" class="experience">
+    <h2>Experience</h2>
+    <div class="item">
+      <span class="material-icons">web</span>
+      <div>
+        <h3>Frontend Development</h3>
+        <p>HTML, CSS, JavaScript, React, Vue</p>
+      </div>
+    </div>
+    <div class="item">
+      <span class="material-icons">storage</span>
+      <div>
+        <h3>Backend Development</h3>
+        <p>Node.js, PHP, Python, Databases</p>
+      </div>
+    </div>
+    <div class="item">
+      <span class="material-icons">build</span>
+      <div>
+        <h3>Tools & Software</h3>
+        <p>VS Code, Git, Figma, Photoshop</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="project1.jpg" alt="Project 1">
+        <h3>Project 1</h3>
+        <a href="#" class="btn">GitHub</a>
+        <a href="#" class="btn">Live Demo</a>
+      </div>
+      <div class="card">
+        <img src="project2.jpg" alt="Project 2">
+        <h3>Project 2</h3>
+        <a href="#" class="btn">GitHub</a>
+        <a href="#" class="btn">Live Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blogs Section -->
+  <section id="blogs">
+    <h2>Blogs</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="blog1.jpg" alt="Blog 1">
+        <h3>Blog 1</h3>
+        <a href="#" class="btn">Read More</a>
+      </div>
+      <div class="card">
+        <img src="blog2.jpg" alt="Blog 2">
+        <h3>Blog 2</h3>
+        <a href="#" class="btn">Read More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:miraz@example.com">miraz@example.com</a></p>
+    <p>LinkedIn: <a href="#">linkedin.com/in/miraz</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 MIRAZ. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('nav ul').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
